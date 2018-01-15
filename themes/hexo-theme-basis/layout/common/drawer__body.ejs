@@ -1,0 +1,16 @@
+<nav id="drawer" class="c-drawer" role="navigation" aria-hidden="true" aria-labelledby="hamburger-btn">
+<% if ( theme.menu ) { %>
+    <ul class="c-drawer__menu">
+<% for (let i of Object.keys(theme.menu)) {
+    const isCategory = i == 'Categories';
+    const href = isCategory ? url_for(config.category_dir) : url_for(theme.menu[i]);
+    const menuText = __('index.' + isCategory ? 'category' : + i.toLowerCase());
+%>
+        <li class="c-drawer__item">
+            <a href="<%= href %>"><%= menuText %></a>
+<% if (isCategory) { %><%- partial('drawer_submenu') %><% } %>
+        </li>
+<% } %>
+    </ul>
+<% } %>
+</nav>

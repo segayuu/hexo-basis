@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head>
+<%- partial('common/head') %>
+</head>
+<body class="l-body" role="document">
+<div class="c-page-effect" data-c="page-effect" data-page-effect="fadein" aria-hidden="false" >
+    <div class="c-page-effect__item">
+        <div class="c-spinner-circle"></div>
+    </div>
+</div>
+<%- partial('common/drawer__body') %>
+<div class="l-container c-container">
+    <%- partial('common/header') %>
+    <div class="l-contents" data-l="contents">
+        <div class="p-main" data-p="main">
+            <%- body %>
+        </div>
+        <%- partial('common/sidebar') %>
+    </div>
+    <%- partial('common/footer') %>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<% let last, postCount = 0; %>
+<% const posts = page.posts; %>
+<% if (posts) { %>
+<% const length = posts.length; %>
+<% posts.each(post => { %>
+<% const year = post.date.year(); %>
+<% if (last != year) { %>
+<% if (last != null) { %>
+</div></section>
+<% } %>
+<% last = year; postCount = 0;%>
+<section class="c-section">
+    <div class="p-archive-year-wrap">
+        <a href="<%= url_for(config.archive_dir + '/' + year) %>" class="p-archive-year"><i class="icon fa fa-calendar-o"></i><%= year %></a>
+    </div>
+    <div class="p-archives">
+        <% } /* header */ %>
+        <% postCount++; %>
+        <% if (postCount % 2 == 1) { %>
+        <div class="c-row c-row--margin">
+            <% } %>
+            <div class="c-row__col c-row__col--md-1-2">
+                <%- partial('summary', { post: post }) %>
+            </div>
+            <% if (postCount == length || postCount % 2 == 0) { %>
+        </div>
+        <% } %>
+        <% }) /* endEach */ %>
+        <% if (length) { %>
+    </div></section>
+<% } %>
+<% if (page.total > 1) { %>
+<nav id="page-nav">
+    <span class="pages"><%= _p('nav.current_page', page.current) %><%= _p('nav.total_page', page.total) %></span>
+    <%- paginator({prev_text: '&laquo;', next_text: '&raquo;'}) %>
+</nav>
+<% } %>
+<% } %>

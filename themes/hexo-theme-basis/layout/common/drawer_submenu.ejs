@@ -1,0 +1,6 @@
+<div class="c-drawer__toggle" data-c="drawer__toggle" aria-expanded="false">&gt;</div>
+<ul class="c-drawer__submenu" data-c="drawer__submenu" aria-hidden="true">
+    <% categoriesEach(cat => { %>
+    <li class="c-drawer__subitem"><a href="<%= url_for(cat.path) %>"><%= cat.name %></a></li>
+    <% }) %>
+</ul>

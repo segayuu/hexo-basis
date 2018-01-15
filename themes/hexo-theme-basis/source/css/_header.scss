@@ -1,0 +1,47 @@
+.l-header {
+  z-index: 2;
+  @include _padding(.5, 0);
+  &, .c-navbar, .c-navbar__item > a {
+    color: $_color-text;
+  }
+
+  @include _media-min('md') {
+    padding: 0;
+  }
+
+  & > c-container {
+    position: relative;
+  }
+
+  .p-sign-board {
+    @include _padding(.5, 0);
+  }
+
+  html[data-scrolled="true"] & {
+    background-color: rgba(#fff, .8);
+  }
+
+  html[data-scrolled="false"] &[data-l-header-type="overlay"] {
+    &, .c-navbar, .c-navbar__item > a {
+      color: #fff;
+    }
+
+    .c-hamburger-btn {
+      &__bar {
+        background-color: #fff;
+      }
+
+      &[aria-expanded="true"] {
+        .c-hamburger-btn__bar:nth-child(2) {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+.c-navbar {
+  .c-navbar__item > a {
+    @include _padding(.25, .5);
+  }
+}

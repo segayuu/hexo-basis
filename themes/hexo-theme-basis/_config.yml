@@ -1,0 +1,13 @@
+menu:
+  home: first
+  Categories: second
+  About: third
+header:
+  overlay: true
+sidebar:
+  display: true
+node_sass:
+  outputStyle: nested
+  includePaths:
+    - themes/hexo-theme-basis/node_modules/sass-basis/src/css
+    - themes/hexo-theme-basis/node_modules/node-normalize-scss

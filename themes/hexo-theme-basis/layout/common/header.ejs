@@ -1,0 +1,25 @@
+<header id="header" class="l-header" data-l="header"<% if (isDisplaySidebar) { %> data-l-header-type="overlay"<% } %>>
+    <div class="c-container">
+        <div class="c-row c-row--nowrap c-row--lg-margin c-row--middle">
+            <div class="c-row__col c-row__col--md-1-4">
+                <div class="p-sign-board">TODO: Logo</div>
+            </div>
+            <div class="c-row__col c-row__col--md-3-4">
+                <div class="u-hidden-sm u-hidden-md">
+                    <ul class="c-navbar c-navbar--right">
+                    <% for (const i of Object.keys(theme.menu)) { %>
+                        <li class="c-navbar__item" data-c="navbar__item">
+                            <a href="<%- url_for(theme.menu[i]) %>"><%= i == 'Categories' ? __('index.category') : __('index.' + i.toLowerCase()) %></a>
+                        </li>
+                    <% } %>
+                    </ul>
+                </div>
+                <div class="u-hidden-lg-up c-hamburger-btn u-pull-right" data-c="drawer-btn" aria-controls="drawer" aria-expanded="false">
+                    <div class="c-hamburger-btn__bar"></div>
+                    <div class="c-hamburger-btn__bar"></div>
+                    <div class="c-hamburger-btn__bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
